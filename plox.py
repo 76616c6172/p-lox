@@ -2,11 +2,17 @@
 import sys, pathlib
 from typing import List
 
+hadError: bool = False
+
+
 # ******************** error handling ********************
 
 
 def report(line: int, where, msg: str) -> None:
     print(f"[line {line}] Error {where}: {msg}")
+
+    global hadError
+    hadError = True
 
 
 def error(line: int, msg: str) -> None:
@@ -27,14 +33,19 @@ def run(src: str) -> None:
 def runFile(path: str) -> None:
     file_content = pathlib.Path(path).read_text()
     run(file_content)
-    pass
+
+    if hadError:
+        sys.exit(64)
 
 
 def runPrompt() -> None:
+    global hadError
+
     while True:
         try:
             line = input("> ")
             run(line)
+            hadError = False
         except EOFError:
             print()
             break
