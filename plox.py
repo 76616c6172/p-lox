@@ -30,6 +30,9 @@ def run(src: str) -> None:
         print(token)
 
 
+# ******************** entrypoint ********************
+
+
 def runFile(path: str) -> None:
     file_content = pathlib.Path(path).read_text()
     run(file_content)
@@ -47,9 +50,6 @@ def runPrompt() -> None:
         except EOFError:
             print()
             break
-
-
-# ******************** entrypoint ********************
 
 
 def main(args: List[str]) -> None:
