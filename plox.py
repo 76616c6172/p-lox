@@ -1,14 +1,26 @@
 #!/usr/bin/env python3
-import sys
+import sys, pathlib
 from typing import List
 
 
-def runFile(file_path: str) -> None:
+def run(file_content: str) -> None:
+    pass
+
+
+def runFile(path: str) -> None:
+    file_content = pathlib.Path(path).read_text()
+    run(file_content)
     pass
 
 
 def runPrompt() -> None:
-    pass
+    while True:
+        try:
+            line = input("> ")
+            run(line)
+        except EOFError:
+            print()
+            break
 
 
 def main(args: List[str]) -> None:
