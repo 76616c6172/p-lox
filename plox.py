@@ -34,9 +34,7 @@ def run(src: str) -> None:
 def runFile(path: str) -> None:
     file_content = pathlib.Path(path).read_text()
     run(file_content)
-
-    if hadError:
-        sys.exit(64)
+    sys.exit(64) if hadError else None
 
 
 def runPrompt() -> None:
