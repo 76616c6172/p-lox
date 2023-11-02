@@ -4,7 +4,6 @@ from typing import List
 
 hadError: bool = False
 
-
 # ******************** error handling ********************
 
 
@@ -48,6 +47,9 @@ def runPrompt() -> None:
         except EOFError:
             print()
             break
+
+
+# ******************** entrypoint ********************
 
 
 def main(args: List[str]) -> None:
