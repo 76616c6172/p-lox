@@ -3,8 +3,12 @@ import sys, pathlib
 from typing import List
 
 
-def run(file_content: str) -> None:
-    pass
+def run(src: str) -> None:
+    tokens: list[str] = src.split()
+
+    # For now just print the tokens.
+    for token in tokens:
+        print(token)
 
 
 def runFile(path: str) -> None:
