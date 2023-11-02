@@ -23,6 +23,7 @@ def error(line: int, msg: str) -> None:
 
 
 def run(src: str) -> None:
+    # "scan" tokens here
     tokens: list[str] = src.split()
 
     # For now just print the tokens.
