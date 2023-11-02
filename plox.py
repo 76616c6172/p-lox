@@ -2,6 +2,19 @@
 import sys, pathlib
 from typing import List
 
+# ******************** error handling ********************
+
+
+def report(line: int, where, msg: str) -> None:
+    print(f"[line {line}] Error {where}: {msg}")
+
+
+def error(line: int, msg: str) -> None:
+    report(line, "", msg)
+
+
+# ******************** core interpreter functions ********************
+
 
 def run(src: str) -> None:
     tokens: list[str] = src.split()
