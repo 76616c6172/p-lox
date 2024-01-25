@@ -6,7 +6,7 @@ hadError: bool = False
 
 # ******************** error handling ********************
 
-def report(line: int, where, msg: str) -> None:
+def report(line: int, msg, where: str) -> None:
 	print(f"[line {line}] Error {where}: {msg}")
 	global hadError
 	hadError = True
@@ -24,7 +24,6 @@ def run(src: str) -> None:
 	for token in tokens:
 		print(token)
 
-# ******************** entrypoint ********************
 
 def runFile(path: str) -> None:
 	file_content = pathlib.Path(path).read_text()
@@ -43,9 +42,11 @@ def runPrompt() -> None:
 			print()
 			break
 
+# ******************** entrypoint ********************
+
 def main(args: List[str]) -> None:
 	if len(args) > 1:
-		print("Usage: plox [script]")
+		print("Error: plox can only run one file at a time\nUsage: ./plox.py <filename>")
 		sys.exit(64)
 	elif len(args) == 1:
 		runFile(args[0])
@@ -53,5 +54,7 @@ def main(args: List[str]) -> None:
 		runPrompt()
 
 if __name__ == "__main__":
+	print(sys.argv)
+	exit(0)
 	main(sys.argv[1:])
 
