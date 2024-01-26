@@ -54,7 +54,4 @@ def main(args: List[str]) -> None:
 		runPrompt()
 
 if __name__ == "__main__":
-	print(sys.argv)
-	exit(0)
 	main(sys.argv[1:])
-
