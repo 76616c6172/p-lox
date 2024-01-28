@@ -1,6 +1,7 @@
 BUILD_DIR	:= build
 TEST_DIR	:= ./tests
-TARGET		:= ./plox.py
+TARGET		:= ./src/plox.py
+SRC_DIR		:= src
 
 # Remove all build outputs
 clean:
@@ -8,7 +9,7 @@ clean:
 
 # Run tests
 test:
-	@ echo -n "\033[35m [mypy]: " && mypy
+	@ echo -n "\033[35m [mypy]: " && mypy $(SRC_DIR)/*
 	@ echo ""
 	@ echo "\033[35m [plox]: \033[0m"
 	@ for f in $(TEST_DIR)/* ; do \
