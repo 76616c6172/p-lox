@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import sys, pathlib
 from typing import List
+from scanner import ScanTokens
+
+from Token import Token
 
 hadError: bool = False
 
@@ -17,16 +20,16 @@ def error(line: int, msg: str) -> None:
 # ******************** core interpreter functions ********************
 
 def run(src: str) -> None:
-	# "scan" tokens here
-	tokens: list[str] = src.split()
+	# TODO: implement lexical grammar to actually emit tokens
+	tokens: List[Token] = ScanTokens(src)
 
 	# For now just print the tokens.
 	for token in tokens:
 		print(token)
-
+		# print(token.toString())
 
 def runFile(path: str) -> None:
-	file_content = pathlib.Path(path).read_text()
+	file_content: str = pathlib.Path(path).read_text()
 	run(file_content)
 	sys.exit(64) if hadError else None
 
