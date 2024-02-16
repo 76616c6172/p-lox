@@ -4,18 +4,7 @@ from typing import List
 from scanner import ScanTokens
 
 from Token import Token
-
-hadError: bool = False
-
-# ******************** error handling ********************
-
-def report(line: int, msg: str, where: str) -> None:
-	print(f"[line {line}] Error {where}: {msg}")
-	global hadError
-	hadError = True
-
-def error(line: int, msg: str) -> None:
-	report(line, "", msg)
+from error import hadError
 
 # ******************** core interpreter functions ********************
 

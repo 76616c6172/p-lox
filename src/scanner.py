@@ -1,6 +1,7 @@
 from typing import List
 
 from Token import Token, TokenType
+from error import Error
 
 def ScanTokens(src: str) -> List[Token] :
     '''
