@@ -20,13 +20,17 @@ def error(line: int, msg: str) -> None:
 # ******************** core interpreter functions ********************
 
 def run(src: str) -> None:
-	# TODO: implement lexical grammar to actually emit tokens
+	# TODO: scanner scans tokens
 	tokens: List[Token] = ScanTokens(src)
 
+	# TODO: parser creates AST
+
+	# TODO: optimizer optimizes AST?
+
+	# TODO: tree walk interpreter walks AST with recursion and then runs the code
 	# For now just print the tokens.
 	for token in tokens:
-		print(token)
-		# print(token.toString())
+		print(token.toString())
 
 def runFile(path: str) -> None:
 	file_content: str = pathlib.Path(path).read_text()
