@@ -32,8 +32,14 @@ def ScanTokens(src: str) -> List[Token] :
         if char == '-': tokens.append(Token(TokenType.MINUS, char, None, line))
         if char == '+': tokens.append(Token(TokenType.PLUS, char, None, line))
         if char == ';': tokens.append(Token(TokenType.SEMICOLON, char, None, line))
-        if char == '/': tokens.append(Token(TokenType.SLASH, char, None, line))
         if char == '*': tokens.append(Token(TokenType.STAR, char, None, line))
+        if char == '/': tokens.append(Token(TokenType.SLASH, char, None, line))
+
+        # Check for tokens that are one or two characters
+
+        else:
+            Error(line, "Unexpected character.")
+            break
 
     return tokens
 
