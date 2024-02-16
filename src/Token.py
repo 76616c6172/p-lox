@@ -1,21 +1,6 @@
 from enum import Enum, auto
 from typing import final
 
-@final
-class Token:
-    def __init__(self, type, lexeme, literal, line):
-        self.type: TokenType = type
-        self.lexeme: str = lexeme
-        self.literal: object = literal
-        self.line: int = line
-
-    def toString(self) -> str: 
-        '''
-        return token info for debug purposes
-        '''
-        return f"{self.type} {self.lexeme} {self.literal}"
-
-
 class TokenType(Enum):
 # Single-character tokens.
 	LEFT_PAREN = auto()
@@ -64,3 +49,17 @@ class TokenType(Enum):
 	WHILE = auto()
 
 	EOF = auto()
+
+@final
+class Token:
+    def __init__(self, type: TokenType, lexeme: str, literal: object, line: int):
+        self.type: TokenType = type
+        self.lexeme: str = lexeme
+        self.literal: object = literal
+        self.line: int = line
+
+    def toString(self) -> str: 
+        '''
+        return token info for debug purposes
+        '''
+        return f"{self.type} {self.lexeme} {self.literal}"

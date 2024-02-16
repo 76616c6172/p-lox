@@ -9,7 +9,7 @@ hadError: bool = False
 
 # ******************** error handling ********************
 
-def report(line: int, msg, where: str) -> None:
+def report(line: int, msg: str, where: str) -> None:
 	print(f"[line {line}] Error {where}: {msg}")
 	global hadError
 	hadError = True
