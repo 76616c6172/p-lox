@@ -15,6 +15,12 @@ def ScanTokens(src: str) -> List[Token] :
     def isAtEnd() -> bool:
        return current == len(src)
 
+    def nextChar() -> str:
+        '''
+        returns the next character
+        '''
+        return src[current+1]
+
     for char in src:
         current += 1
 
